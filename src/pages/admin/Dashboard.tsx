@@ -85,14 +85,6 @@ const Dashboard = () => {
             <h1 className="text-3xl font-bold text-white mb-2">Dashboard Tổng quan</h1>
             <p className="text-slate-400">Giám sát hệ thống an ninh và giao thông</p>
           </div>
-          <Button
-            onClick={handleLogout}
-            variant="outline"
-            className="border-red-400 text-red-400 hover:bg-red-400 hover:text-white"
-          >
-            <LogOut className="h-4 w-4 mr-2" />
-            Đăng xuất
-          </Button>
         </div>
 
         {/* Stats Grid */}

@@ -46,11 +46,11 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex">
       {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-slate-800/90 backdrop-blur-md border-r border-slate-700 transform transition-transform duration-300 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } lg:translate-x-0 lg:static lg:inset-0`}>
+      } lg:relative lg:translate-x-0`}>
         
         {/* Logo */}
         <div className="flex items-center justify-between p-4 border-b border-slate-700">
@@ -114,7 +114,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       </div>
 
       {/* Main Content */}
-      <div className={`flex-1 ${sidebarOpen ? 'lg:ml-64' : ''}`}>
+      <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header */}
         <div className="lg:hidden bg-slate-800/90 backdrop-blur-md border-b border-slate-700 p-4">
           <div className="flex items-center justify-between">
@@ -135,7 +135,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
         </div>
 
         {/* Page Content */}
-        <main className="min-h-screen">
+        <main className="flex-1 overflow-auto">
           {children}
         </main>
       </div>

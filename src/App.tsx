@@ -15,8 +15,8 @@ import NotFound from "./pages/NotFound";
 
 // Admin Pages
 import Dashboard from "./pages/admin/Dashboard";
-
-const queryClient = new QueryClient();
+import LiveMap from "./pages/admin/LiveMap";
+import Investigation from "./pages/admin/Investigation";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -35,6 +35,18 @@ const App = () => (
           <Route path="/admin/dashboard" element={
             <AuthGuard>
               <Dashboard />
+            </AuthGuard>
+          } />
+          
+          <Route path="/admin/live-map" element={
+            <AuthGuard>
+              <LiveMap />
+            </AuthGuard>
+          } />
+          
+          <Route path="/admin/investigation" element={
+            <AuthGuard>
+              <Investigation />
             </AuthGuard>
           } />
           
