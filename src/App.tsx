@@ -18,6 +18,8 @@ import Dashboard from "./pages/admin/Dashboard";
 import LiveMap from "./pages/admin/LiveMap";
 import Investigation from "./pages/admin/Investigation";
 
+const queryClient = new QueryClient();
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>

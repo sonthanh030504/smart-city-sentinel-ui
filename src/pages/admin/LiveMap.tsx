@@ -121,9 +121,14 @@ const LiveMap = () => {
     
     setVehicles(initialVehicles);
     setAlerts(initialAlerts);
-    setLiveEvents([...initialVehicles, ...initialAlerts].sort((a, b) => 
-      new Date(b.detectedAt || b.time).getTime() - new Date(a.detectedAt || a.time).getTime()
-    ));
+    
+    // Fixed: Properly handle union type by checking for property existence
+    const sortedEvents = [...initialVehicles, ...initialAlerts].sort((a, b) => {
+      const timeA = 'detectedAt' in a ? a.detectedAt.getTime() : a.time.getTime();
+      const timeB = 'detectedAt' in b ? b.detectedAt.getTime() : b.time.getTime();
+      return timeB - timeA;
+    });
+    setLiveEvents(sortedEvents);
 
     // Simulate real-time updates
     const interval = setInterval(() => {
@@ -442,7 +447,7 @@ const LiveMap = () => {
                       <div className="text-xs text-slate-400 flex items-center space-x-2">
                         <Clock className="h-3 w-3" />
                         <span>
-                          {(event.detectedAt || event.time).toLocaleTimeString('vi-VN')}
+                          {('detectedAt' in event ? event.detectedAt : event.time).toLocaleTimeString('vi-VN')}
                         </span>
                       </div>
                     </div>
