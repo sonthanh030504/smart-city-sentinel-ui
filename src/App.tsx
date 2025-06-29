@@ -10,6 +10,7 @@ import AuthGuard from "./components/AuthGuard";
 import Index from "./pages/Index";
 import MapExplorer from "./pages/MapExplorer";
 import About from "./pages/About";
+import Blog from "./pages/Blog";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
@@ -21,6 +22,8 @@ import LiveMap from "./pages/admin/LiveMap";
 import Investigation from "./pages/admin/Investigation";
 import Analytics from "./pages/admin/Analytics";
 import Alerts from "./pages/admin/Alerts";
+import Management from "./pages/admin/Management";
+import Profile from "./pages/admin/Profile";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +38,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/map-explorer" element={<MapExplorer />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
@@ -67,6 +71,18 @@ const App = () => (
           <Route path="/admin/alerts" element={
             <AuthGuard>
               <Alerts />
+            </AuthGuard>
+          } />
+
+          <Route path="/admin/management" element={
+            <AuthGuard>
+              <Management />
+            </AuthGuard>
+          } />
+
+          <Route path="/admin/profile" element={
+            <AuthGuard>
+              <Profile />
             </AuthGuard>
           } />
           
