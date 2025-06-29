@@ -11,12 +11,16 @@ import Index from "./pages/Index";
 import MapExplorer from "./pages/MapExplorer";
 import About from "./pages/About";
 import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
 
 // Admin Pages
 import Dashboard from "./pages/admin/Dashboard";
 import LiveMap from "./pages/admin/LiveMap";
 import Investigation from "./pages/admin/Investigation";
+import Analytics from "./pages/admin/Analytics";
+import Alerts from "./pages/admin/Alerts";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +36,8 @@ const App = () => (
           <Route path="/map-explorer" element={<MapExplorer />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           
           {/* Protected Admin Routes */}
           <Route path="/admin/dashboard" element={
@@ -49,6 +55,18 @@ const App = () => (
           <Route path="/admin/investigation" element={
             <AuthGuard>
               <Investigation />
+            </AuthGuard>
+          } />
+
+          <Route path="/admin/analytics" element={
+            <AuthGuard>
+              <Analytics />
+            </AuthGuard>
+          } />
+
+          <Route path="/admin/alerts" element={
+            <AuthGuard>
+              <Alerts />
             </AuthGuard>
           } />
           

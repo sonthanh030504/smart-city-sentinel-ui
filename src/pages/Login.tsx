@@ -119,6 +119,16 @@ const Login = () => {
               >
                 {isLoading ? "Đang đăng nhập..." : "Đăng nhập"}
               </Button>
+
+              {/* Forgot Password Link */}
+              <div className="text-center">
+                <Link 
+                  to="/forgot-password" 
+                  className="text-sm text-blue-400 hover:text-blue-300 hover:underline"
+                >
+                  Quên mật khẩu?
+                </Link>
+              </div>
             </form>
 
             <div className="mt-6 pt-6 border-t border-slate-700">
